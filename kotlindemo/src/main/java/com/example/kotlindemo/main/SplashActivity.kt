@@ -1,7 +1,8 @@
 package com.example.kotlindemo.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.kotlindemo.R
 
 class SplashActivity : AppCompatActivity() {
 

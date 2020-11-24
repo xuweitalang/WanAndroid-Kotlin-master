@@ -66,6 +66,11 @@ class MainApp : Application() {
         cookieJar = PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(context))
     }
 
+    fun getPersistentCookieJar(): PersistentCookieJar {
+        return cookieJar
+    }
+
+
     companion object {
         private lateinit var context: Context
         private lateinit var instance: MainApp

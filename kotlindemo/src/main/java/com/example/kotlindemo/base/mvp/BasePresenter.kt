@@ -2,6 +2,7 @@ package com.example.kotlindemo.base.mvp
 
 import com.example.kotlindemo.base.BaseResponse
 import com.example.kotlindemo.http.BaseObserver
+import com.example.kotlindemo.http.RetrofitClient
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -23,6 +24,14 @@ open class BasePresenter<V : IView> : IPresenter<V> {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeWith(subscribe)
         disposable.add(subscribe)
+    }
+
+    fun unSubscribe() {
+        disposable.dispose()
+    }
+
+    fun <D> create(clazz: Class<D>): D {
+        return RetrofitClient.get().retrofit.create(clazz)
     }
 
     override fun attachView(view: V) {

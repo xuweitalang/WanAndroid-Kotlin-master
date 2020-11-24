@@ -46,6 +46,6 @@ abstract class BaseObserver<T> : DisposableObserver<BaseResponse<T>> {
     }
 
     override fun onError(e: Throwable) {
-
+        ExceptionHandler.handleException(e)
     }
 }

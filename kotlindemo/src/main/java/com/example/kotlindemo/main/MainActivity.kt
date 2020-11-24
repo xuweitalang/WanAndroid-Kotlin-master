@@ -1,7 +1,8 @@
-package com.example.kotlindemo
+package com.example.kotlindemo.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.kotlindemo.R
 
 class MainActivity : AppCompatActivity() {
     private var str: String? = null
