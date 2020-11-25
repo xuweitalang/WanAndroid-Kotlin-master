@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -10,10 +11,17 @@ android {
         applicationId "com.example.kotlindemo"
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath = true
+            }
+        }
     }
 
     buildTypes {
@@ -53,6 +61,7 @@ dependencies {
     implementation rootProject.ext.dependencies['glide']
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     annotationProcessor rootProject.ext.dependencies['glide-compiler']
 
     // arouter

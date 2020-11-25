@@ -20,7 +20,7 @@ open class BasePresenter<V : IView> : IPresenter<V> {
     private var disposable: CompositeDisposable = CompositeDisposable()
 
     fun <T> addSubscribe(observable: Observable<BaseResponse<T>>, subscribe: BaseObserver<T>) {
-        var subscribe = observable.subscribeOn(Schedulers.io())
+        val subscribe = observable.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeWith(subscribe)
         disposable.add(subscribe)

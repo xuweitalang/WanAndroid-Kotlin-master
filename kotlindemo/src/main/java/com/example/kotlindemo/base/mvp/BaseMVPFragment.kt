@@ -9,7 +9,7 @@ import com.example.kotlindemo.base.BaseFragment
  * @Description:
  */
 abstract class BaseMVPFragment<in V : IView, P : IPresenter<in V>> : BaseFragment(), IView {
-    private lateinit var presenter: P
+    protected lateinit var presenter: P
 
     override fun initData() {
         super.initData()
